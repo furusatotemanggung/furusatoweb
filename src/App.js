@@ -119,7 +119,7 @@ function AppShell() {
         return;
       }
 
-      setFavicon(resolveMediaUrl(site.logoUrl) || 'https://res.cloudinary.com/dlmpca80t/image/upload/v1793727422/furusato/pjmx68zzsenz6bx2gavq.png');
+      setFavicon(resolveMediaUrl(site.logoUrl) || 'https://res.cloudinary.com/dlmpca80t/image/upload/v1793727436/furusato/x1cm4jwf4bobandoatt5.png');
     };
 
     loadFavicon();
