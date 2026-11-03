@@ -292,16 +292,34 @@ p {
 
 .program-list {
   display: grid;
-  gap: 1px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 34px;
 }
 
-.program-list article,
+.program-list article {
+  background: var(--white);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  padding: 0;
+}
+
 .news-list article {
   background: var(--white);
   border: 1px solid var(--line);
   padding: 30px;
+}
+
+.program-list article img,
+.program-poster-ph {
+  aspect-ratio: 9 / 16;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.program-card-body {
+  padding: 24px;
 }
 
 .program-list span,
@@ -677,7 +695,7 @@ p {
 
 .about-program-grid {
   display: grid;
-  gap: 20px;
+  gap: 28px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -691,7 +709,7 @@ p {
 
 .about-program-card img,
 .about-program-card .gallery-placeholder {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 9 / 16;
   min-height: 0;
   object-fit: cover;
   width: 100%;
@@ -1140,7 +1158,7 @@ p {
   }
 
   .program-list article {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: auto;
   }
 
   .section-heading-row {
@@ -1876,33 +1894,9 @@ body {
 }
 
 .program-list article {
-  align-content: end;
-  aspect-ratio: 1 / 2;
   border-top: 4px solid var(--orange);
-  display: grid;
   min-height: 0;
   position: relative;
-}
-
-.program-list article.has-program-bg {
-  align-content: end;
-  background:
-    linear-gradient(180deg, rgba(36, 36, 36, 0.18), rgba(36, 36, 36, 0.82)),
-    var(--program-bg);
-  background-position: center;
-  background-size: cover;
-  border-top-color: transparent;
-  display: grid;
-  overflow: hidden;
-}
-
-.program-list article.has-program-bg h3,
-.program-list article.has-program-bg p {
-  color: var(--white);
-}
-
-.program-list article.has-program-bg p {
-  margin-bottom: 0;
 }
 
 .program-list span,
@@ -2117,7 +2111,7 @@ a.gallery-run-card:hover {
   border-top-color: var(--sticker-blue);
 }
 
-.program-list article.has-program-bg {
+.program-list article.program-card {
   border-top-color: var(--sticker-yellow);
 }
 

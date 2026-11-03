@@ -23,13 +23,18 @@ function ProgramSection() {
       </div>
       <div className="program-list">
         {translatedPrograms.map((program) => (
-          <article
-            className={`sticker-card ${program.imageUrl ? 'has-program-bg' : ''}`}
-            key={program.id || program.title}
-            style={program.imageUrl ? { '--program-bg': `url(${resolveMediaUrl(program.imageUrl)})` } : undefined}
-          >
-            <h3>{program.title}</h3>
-            <p>{program.description}</p>
+          <article className="sticker-card program-card" key={program.id || program.title}>
+            {program.imageUrl ? (
+              <img src={resolveMediaUrl(program.imageUrl)} alt={program.title} />
+            ) : (
+              <div className="gallery-placeholder image-marker program-poster-ph">
+                <span>{copy.aboutPage.programPlaceholder}</span>
+              </div>
+            )}
+            <div className="program-card-body">
+              <h3>{program.title}</h3>
+              <p>{program.description}</p>
+            </div>
           </article>
         ))}
       </div>
