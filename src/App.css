@@ -1984,10 +1984,14 @@ body {
   margin-right: -5vw;
   margin-top: 42px;
   overflow: hidden;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
 }
 
 .gallery-marquee-track {
-  animation: gallery-scroll 36s linear infinite;
+  animation: gallery-scroll 55s linear infinite;
   display: flex;
   gap: 22px;
   width: max-content;
