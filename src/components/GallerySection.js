@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fallbackGallery } from '../data/fallbackContent';
 import { fetchJson, resolveMediaUrl } from '../lib/api';
-import MediaFrame from './MediaFrame';
 import { useLanguage } from '../i18n/LanguageProvider';
 import { useTranslatedItems } from '../i18n/useTranslatedItems';
 
@@ -31,7 +30,7 @@ function GallerySection() {
             const cardContent = (
               <>
                 {imageSrc ? (
-                  <MediaFrame src={item.imageUrl} alt={item.title} />
+                  <img src={imageSrc} alt={item.title} />
                 ) : (
                   <div className="gallery-placeholder image-marker">
                     <span>{copy.gallery.placeholder}</span>

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { fallbackGallery, fallbackSite } from '../data/fallbackContent';
 import { fetchJson, fetchSite, resolveMediaUrl } from '../lib/api';
-import MediaFrame from '../components/MediaFrame';
 import { useLanguage } from '../i18n/LanguageProvider';
 import { useTranslatedItems } from '../i18n/useTranslatedItems';
 import { scrollToHashTarget } from '../lib/scroll';
@@ -56,7 +55,7 @@ function GalleryPage() {
         {translatedGalleryItems.map((item) => (
           <article className="gallery-card sticker-card" id={getGalleryItemId(item.id)} key={item.id}>
             {item.imageUrl ? (
-              <MediaFrame src={item.imageUrl} alt={item.title} />
+              <img src={resolveMediaUrl(item.imageUrl)} alt={item.title} />
             ) : (
               <div className="gallery-placeholder image-marker">
                 <span>{copy.galleryPage.placeholder}</span>

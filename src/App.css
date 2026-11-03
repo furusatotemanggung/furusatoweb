@@ -508,51 +508,6 @@ p {
   object-fit: cover;
 }
 
-/* Bingkai foto utuh (MediaFrame): foto tampil penuh, sisa ruang = blur foto itu sendiri */
-.media-frame {
-  background: #141a21;
-  display: block;
-  overflow: hidden;
-  position: relative;
-}
-
-.media-frame .mf-bg {
-  filter: blur(18px) brightness(0.82);
-  height: 100%;
-  inset: 0;
-  object-fit: cover;
-  position: absolute;
-  transform: scale(1.18);
-  width: 100%;
-}
-
-.media-frame .mf-fg {
-  display: block;
-  height: 100%;
-  object-fit: contain;
-  position: relative;
-  width: 100%;
-}
-
-.gallery-card .media-frame,
-.gallery-run-card .media-frame {
-  aspect-ratio: 4 / 3;
-}
-
-.gallery-card .media-frame .mf-fg,
-.gallery-run-card .media-frame .mf-fg {
-  aspect-ratio: auto;
-}
-
-.news-card-media .media-frame {
-  aspect-ratio: 16 / 9;
-}
-
-.news-page-list .news-card-media .media-frame .mf-fg {
-  aspect-ratio: auto;
-  height: 100%;
-}
-
 /* Kartu lulus job berisi foto potret orang — bingkai potret 4/5 dan crop
    ditambatkan ke atas agar wajah tidak terpotong (aturan galeri 4/3 landscape
    tidak cocok untuk foto potret). */
