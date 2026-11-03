@@ -772,7 +772,7 @@ p {
   background:
     linear-gradient(90deg, rgba(36, 36, 36, 0.82), rgba(36, 36, 36, 0.48)),
     var(--page-hero-bg, linear-gradient(135deg, var(--red), var(--orange)));
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center 48%;
   background-size: cover;
   border-radius: 8px;
@@ -1810,7 +1810,7 @@ body {
   background:
     linear-gradient(90deg, rgba(16, 36, 58, 0.56), rgba(16, 36, 58, 0.18)),
     var(--hero-bg);
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center 42%;
   background-size: cover;
   color: var(--white);
@@ -2967,7 +2967,7 @@ a.gallery-run-card:hover {
 }
 
 .page-hero.has-page-hero-bg {
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center 48%;
   min-height: clamp(320px, 40vw, 460px);
   padding-bottom: clamp(72px, 10vw, 128px);
@@ -2984,7 +2984,7 @@ a.gallery-run-card:hover {
 
 .about-section.has-section-bg,
 .news-section.has-section-bg {
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center 48%;
   min-height: clamp(380px, 40vw, 540px);
 }
