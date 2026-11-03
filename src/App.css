@@ -508,6 +508,51 @@ p {
   object-fit: cover;
 }
 
+/* Bingkai foto utuh (MediaFrame): foto tampil penuh, sisa ruang = blur foto itu sendiri */
+.media-frame {
+  background: #141a21;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.media-frame .mf-bg {
+  filter: blur(18px) brightness(0.82);
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  transform: scale(1.18);
+  width: 100%;
+}
+
+.media-frame .mf-fg {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  width: 100%;
+}
+
+.gallery-card .media-frame,
+.gallery-run-card .media-frame {
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-card .media-frame .mf-fg,
+.gallery-run-card .media-frame .mf-fg {
+  aspect-ratio: auto;
+}
+
+.news-card-media .media-frame {
+  aspect-ratio: 16 / 9;
+}
+
+.news-page-list .news-card-media .media-frame .mf-fg {
+  aspect-ratio: auto;
+  height: 100%;
+}
+
 /* Kartu lulus job berisi foto potret orang — bingkai potret 4/5 dan crop
    ditambatkan ke atas agar wajah tidak terpotong (aturan galeri 4/3 landscape
    tidak cocok untuk foto potret). */
@@ -727,7 +772,8 @@ p {
   background:
     linear-gradient(90deg, rgba(36, 36, 36, 0.82), rgba(36, 36, 36, 0.48)),
     var(--page-hero-bg, linear-gradient(135deg, var(--red), var(--orange)));
-  background-position: center 56%;
+  background-attachment: fixed;
+  background-position: center 48%;
   background-size: cover;
   border-radius: 8px;
   color: var(--white);
@@ -1761,14 +1807,39 @@ body {
 }
 
 .money-hero.has-hero-bg {
-  background:
-    linear-gradient(90deg, rgba(16, 36, 58, 0.56), rgba(16, 36, 58, 0.18)),
-    var(--hero-bg);
-  background-position: center 56%;
-  background-size: cover;
-  background-attachment: fixed;
+  background: #10222f;
   color: var(--white);
-  min-height: clamp(320px, 36vw, 500px);
+  min-height: clamp(420px, 46vw, 560px);
+  overflow: hidden;
+  position: relative;
+}
+
+.money-hero.has-hero-bg::before {
+  background-image: var(--hero-bg);
+  background-position: center;
+  background-size: cover;
+  content: '';
+  filter: blur(24px) brightness(0.62);
+  inset: 0;
+  position: absolute;
+  transform: scale(1.12);
+}
+
+.money-hero.has-hero-bg::after {
+  background-image:
+    linear-gradient(90deg, rgba(16, 36, 58, 0.6), rgba(16, 36, 58, 0.06) 62%),
+    var(--hero-bg);
+  background-position: center, 84% center;
+  background-repeat: no-repeat;
+  background-size: cover, contain;
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.money-hero.has-hero-bg .hero-copy {
+  position: relative;
+  z-index: 2;
 }
 
 .money-hero.has-hero-bg .hero-copy {
@@ -2921,32 +2992,37 @@ a.gallery-run-card:hover {
 }
 
 .page-hero.has-page-hero-bg {
-  background-position: center 56%;
-  min-height: clamp(360px, 46vw, 540px);
+  background-attachment: fixed;
+  background-position: center 48%;
+  min-height: clamp(320px, 40vw, 460px);
   padding-bottom: clamp(72px, 10vw, 128px);
   padding-top: clamp(88px, 11vw, 140px);
 }
 
 .news-page-hero.has-page-hero-bg {
-  min-height: clamp(420px, 52vw, 620px);
+  min-height: clamp(360px, 44vw, 520px);
 }
 
 .money-hero.has-hero-bg {
-  background-position: center 56%;
-  min-height: clamp(420px, 52vw, 620px);
+  min-height: clamp(420px, 46vw, 560px);
 }
 
 .about-section.has-section-bg,
 .news-section.has-section-bg {
-  background-attachment: scroll;
-  background-position: center 56%;
-  min-height: clamp(420px, 44vw, 620px);
+  background-attachment: fixed;
+  background-position: center 48%;
+  min-height: clamp(380px, 40vw, 540px);
 }
 
 @media (max-width: 960px) {
   .page-hero.has-page-hero-bg {
+    background-attachment: scroll;
     background-position: center 60%;
     min-height: clamp(340px, 62vw, 520px);
+  }
+
+  .about-slogan-band {
+    background-attachment: scroll;
   }
 
   .news-page-hero.has-page-hero-bg {
