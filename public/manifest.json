@@ -3,9 +3,14 @@
   "name": "LPK Furusato Temanggung",
   "icons": [
     {
-      "src": "uploads/1778684122156-createMyojiImage.png",
+      "src": "logo192.png",
       "type": "image/png",
-      "sizes": "300x300"
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",

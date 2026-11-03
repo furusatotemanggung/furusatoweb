@@ -1,14 +1,24 @@
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { isAdminLoggedIn, loginAdmin, setAdminToken } from './adminApi';
+import { loginAdmin } from './adminApi';
+import { useAdminAuth } from './useAdminAuth';
 
 function AdminLoginPage() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ username: '', password: '' });
+  const { user, loading } = useAdminAuth();
+  const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  if (isAdminLoggedIn()) {
+  if (loading) {
+    return (
+      <section className="admin-auth-page">
+        <p>Memuat...</p>
+      </section>
+    );
+  }
+
+  if (user) {
     return <Navigate to="/admin/dashboard" replace />;
   }
 
@@ -18,8 +28,7 @@ function AdminLoginPage() {
     setIsSubmitting(true);
 
     try {
-      const result = await loginAdmin(form);
-      setAdminToken(result.token);
+      await loginAdmin(form);
       navigate('/admin/dashboard', { replace: true });
     } catch (requestError) {
       setError(requestError.message);
@@ -38,11 +47,12 @@ function AdminLoginPage() {
         </div>
 
         <label>
-          Username
+          Email
           <input
-            value={form.username}
-            onChange={(event) => setForm({ ...form, username: event.target.value })}
-            placeholder="user"
+            type="email"
+            value={form.email}
+            onChange={(event) => setForm({ ...form, email: event.target.value })}
+            placeholder="email admin"
             required
           />
         </label>
