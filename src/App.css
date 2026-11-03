@@ -1807,39 +1807,14 @@ body {
 }
 
 .money-hero.has-hero-bg {
-  background: #10222f;
+  background:
+    linear-gradient(90deg, rgba(16, 36, 58, 0.56), rgba(16, 36, 58, 0.18)),
+    var(--hero-bg);
+  background-attachment: fixed;
+  background-position: center 42%;
+  background-size: cover;
   color: var(--white);
   min-height: clamp(420px, 46vw, 560px);
-  overflow: hidden;
-  position: relative;
-}
-
-.money-hero.has-hero-bg::before {
-  background-image: var(--hero-bg);
-  background-position: center;
-  background-size: cover;
-  content: '';
-  filter: blur(24px) brightness(0.62);
-  inset: 0;
-  position: absolute;
-  transform: scale(1.12);
-}
-
-.money-hero.has-hero-bg::after {
-  background-image:
-    linear-gradient(90deg, rgba(16, 36, 58, 0.6), rgba(16, 36, 58, 0.06) 62%),
-    var(--hero-bg);
-  background-position: center, 84% center;
-  background-repeat: no-repeat;
-  background-size: cover, contain;
-  content: '';
-  inset: 0;
-  position: absolute;
-}
-
-.money-hero.has-hero-bg .hero-copy {
-  position: relative;
-  z-index: 2;
 }
 
 .money-hero.has-hero-bg .hero-copy {
