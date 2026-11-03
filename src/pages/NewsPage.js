@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { fallbackNews, fallbackSite } from '../data/fallbackContent';
 import { fetchJson, fetchSite, resolveMediaUrl } from '../lib/api';
-import MediaFrame from '../components/MediaFrame';
 import { useLanguage } from '../i18n/LanguageProvider';
 import { useTranslatedItems } from '../i18n/useTranslatedItems';
 import { scrollToHashTarget } from '../lib/scroll';
@@ -69,7 +68,7 @@ function NewsPage() {
           <article className={`sticker-card ${expandedNewsId === item.id ? 'is-expanded' : ''}`} id={item.id} key={item.id}>
             {item.imageUrl && (
               <div className="news-card-media">
-                <MediaFrame src={item.imageUrl} alt={item.title} />
+                <img className="news-card-image" src={resolveMediaUrl(item.imageUrl)} alt={item.title} />
               </div>
             )}
             <div className="news-card-body">
