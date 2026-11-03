@@ -490,6 +490,14 @@ p {
   object-fit: cover;
 }
 
+/* Kartu lulus job berisi foto potret orang — bingkai potret 4/5 dan crop
+   ditambatkan ke atas agar wajah tidak terpotong (aturan galeri 4/3 landscape
+   tidak cocok untuk foto potret). */
+.lulus-job-card img {
+  aspect-ratio: 4 / 5;
+  object-position: top center;
+}
+
 .gallery-card > div:last-child {
   padding: 24px;
 }

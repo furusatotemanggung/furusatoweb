@@ -1,0 +1,41 @@
+rules_version = '2';
+
+// Furusato — publik hanya baca, hanya admin (Firebase Auth) yang boleh tulis.
+// Admin = user yang login via Firebase Authentication (dibuat manual di Console).
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null;
+    }
+
+    // Koleksi konten publik
+    match /news/{docId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    match /gallery/{docId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    match /lulusJobs/{docId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Dokumen tunggal: site/main, content/home, content/about
+    match /site/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /content/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Sisanya terkunci total
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

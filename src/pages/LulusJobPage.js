@@ -58,7 +58,7 @@ function LulusJobPage() {
         {translatedLulusJobItems.map((item) => (
           <article className="gallery-card sticker-card lulus-job-card" id={getLulusJobItemId(item.id)} key={item.id}>
             {item.imageUrl ? (
-              <img src={resolveMediaUrl(item.imageUrl)} alt={item.name} />
+              <img src={resolveMediaUrl(item.imageUrl, 'portrait')} alt={item.name} />
             ) : (
               <div className="gallery-placeholder image-marker">
                 <span>{copy.lulusJobPage.placeholder}</span>

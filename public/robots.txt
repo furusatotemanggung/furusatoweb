@@ -5,4 +5,4 @@ Disallow: /admin/
 Disallow: /api
 Disallow: /api/
 
-Sitemap: https://furusato-seven.vercel.app/sitemap.xml
+Sitemap: https://furusatotmg.com/sitemap.xml

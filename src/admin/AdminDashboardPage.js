@@ -15,8 +15,7 @@ import {
   getLulusJobs,
   getNews,
   getSiteSettings,
-  isAdminLoggedIn,
-  refreshAdminSession,
+  seedInitialData,
   publishJobNews,
   updateAdminAccount,
   updateAboutContent,
@@ -30,6 +29,8 @@ import {
 } from './adminApi';
 import { resolveMediaUrl } from '../lib/api';
 import { fallbackAboutContent, fallbackLulusJobs } from '../data/fallbackContent';
+import { useAdminAuth } from './useAdminAuth';
+import seedData from '../data/seedData';
 
 function getTodayDate() {
   return new Date().toISOString().slice(0, 10);
@@ -87,11 +88,12 @@ function AdminDashboardPage() {
   const [siteForm, setSiteForm] = useState(emptySite);
   const [homeContentForm, setHomeContentForm] = useState(emptyHomeContent);
   const [aboutContentForm, setAboutContentForm] = useState(fallbackAboutContent);
+  const { user: adminUser, loading: authLoading } = useAdminAuth();
+  const [dataReady, setDataReady] = useState(false);
   const [message, setMessage] = useState('');
   const [messageTone, setMessageTone] = useState('success');
   const [error, setError] = useState('');
   const siteFormRef = useRef(emptySite);
-  const lastSessionTouchRef = useRef(0);
 
   const refreshContent = useCallback(async () => {
     try {
@@ -116,6 +118,7 @@ function AdminDashboardPage() {
         socials: { ...emptySite.socials, ...(site.socials || {}) },
       });
       setHomeContentForm(normalizeHomeContent(homeContent));
+      setDataReady(true);
       setAboutContentForm({
         ...fallbackAboutContent,
         ...aboutContent,
@@ -126,92 +129,21 @@ function AdminDashboardPage() {
         slogan: { ...fallbackAboutContent.slogan, ...(aboutContent.slogan || {}) },
       });
     } catch (requestError) {
-      clearAdminToken();
-      navigate('/admin/login', { replace: true });
+      setError(requestError.message || 'Gagal memuat data dashboard.');
     }
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
-    if (!isAdminLoggedIn()) {
+    if (!adminUser) {
       return;
     }
 
     refreshContent();
-  }, [refreshContent]);
+  }, [adminUser, refreshContent]);
 
   useEffect(() => {
     siteFormRef.current = siteForm;
   }, [siteForm]);
-
-  useEffect(() => {
-    if (!isAdminLoggedIn()) {
-      return undefined;
-    }
-
-    const verifyAdminSession = async () => {
-      try {
-        await getAdminAccount();
-        refreshAdminSession();
-        lastSessionTouchRef.current = Date.now();
-      } catch (_requestError) {
-        clearAdminToken();
-        navigate('/admin/login', { replace: true });
-      }
-    };
-
-    const touchAdminSession = () => {
-      const now = Date.now();
-
-      if (now - lastSessionTouchRef.current < 15000) {
-        return;
-      }
-
-      refreshAdminSession();
-      lastSessionTouchRef.current = now;
-    };
-
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        touchAdminSession();
-        verifyAdminSession();
-      }
-    };
-
-    const handleFocus = () => {
-      touchAdminSession();
-      verifyAdminSession();
-    };
-
-    const handleActivity = () => {
-      touchAdminSession();
-    };
-
-    const timer = window.setInterval(() => {
-      if (document.visibilityState === 'visible') {
-        verifyAdminSession();
-      } else {
-        touchAdminSession();
-      }
-    }, 60000);
-
-    window.addEventListener('focus', handleFocus);
-    window.addEventListener('click', handleActivity, true);
-    window.addEventListener('keydown', handleActivity, true);
-    window.addEventListener('mousemove', handleActivity, true);
-    window.addEventListener('touchstart', handleActivity, true);
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    verifyAdminSession();
-
-    return () => {
-      window.clearInterval(timer);
-      window.removeEventListener('focus', handleFocus);
-      window.removeEventListener('click', handleActivity, true);
-      window.removeEventListener('keydown', handleActivity, true);
-      window.removeEventListener('mousemove', handleActivity, true);
-      window.removeEventListener('touchstart', handleActivity, true);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, [navigate]);
 
   useEffect(() => {
     if (!message && !error) {
@@ -226,7 +158,15 @@ function AdminDashboardPage() {
     return () => window.clearTimeout(timer);
   }, [message, error]);
 
-  if (!isAdminLoggedIn()) {
+  if (authLoading) {
+    return (
+      <section className="admin-auth-page">
+        <p>Memuat sesi admin...</p>
+      </section>
+    );
+  }
+
+  if (!adminUser) {
     return <Navigate to="/admin/login" replace />;
   }
 
@@ -809,6 +749,21 @@ function AdminDashboardPage() {
     });
   }
 
+  async function handleSeedData() {
+    resetFeedback();
+    try {
+      const result = await seedInitialData(seedData);
+      if (result.seeded) {
+        setMessage('Data awal berhasil diimpor dari snapshot situs live.');
+        await refreshContent();
+      } else {
+        setMessage(result.reason || 'Data sudah ada.');
+      }
+    } catch (requestError) {
+      setError(requestError.message);
+    }
+  }
+
   function logout() {
     clearAdminToken();
     navigate('/admin/login', { replace: true });
@@ -821,7 +776,12 @@ function AdminDashboardPage() {
           <p className="eyebrow">Dashboard Admin</p>
           <h1>Manage Galeri dan Berita</h1>
         </div>
-        <button type="button" onClick={logout}>Keluar</button>
+        <div>
+          {dataReady && newsItems.length === 0 && galleryItems.length === 0 && (
+            <button type="button" onClick={handleSeedData}>Impor Data Awal</button>
+          )}
+          <button type="button" onClick={logout}>Keluar</button>
+        </div>
       </header>
 
       <div className="admin-tabs" role="tablist" aria-label="Dashboard content">
@@ -880,7 +840,7 @@ function AdminDashboardPage() {
             </label>
             <label>
               URL gambar berita
-              <input value={newsForm.imageUrl || ''} onChange={(event) => setNewsForm({ ...newsForm, imageUrl: event.target.value })} placeholder="/uploads/gambar-berita.jpg" />
+              <input value={newsForm.imageUrl || ''} onChange={(event) => setNewsForm({ ...newsForm, imageUrl: event.target.value })} placeholder="https://.../gambar-gambar-berita.jpg" />
             </label>
             {newsForm.imageUrl && (
               <img className="admin-image-preview" src={resolveMediaUrl(newsForm.imageUrl)} alt="Preview berita" />
@@ -926,7 +886,7 @@ function AdminDashboardPage() {
             </label>
             <label>
               URL gambar
-              <input value={galleryForm.imageUrl} onChange={(event) => setGalleryForm({ ...galleryForm, imageUrl: event.target.value })} placeholder="/uploads/nama-file.jpg" />
+              <input value={galleryForm.imageUrl} onChange={(event) => setGalleryForm({ ...galleryForm, imageUrl: event.target.value })} placeholder="https://.../gambar-nama-file.jpg" />
             </label>
             {galleryForm.imageUrl && (
               <img className="admin-image-preview" src={resolveMediaUrl(galleryForm.imageUrl)} alt="Preview galeri" />
@@ -974,7 +934,7 @@ function AdminDashboardPage() {
                 <input
                   value={siteForm.backgrounds.lulusJobPageUrl || ''}
                   onChange={(event) => updateSiteBackground('lulusJobPageUrl', event.target.value)}
-                  placeholder="/uploads/background-lulus-job.jpg"
+                  placeholder="https://.../gambar-background-lulus-job.jpg"
                 />
               </label>
               {siteForm.backgrounds.lulusJobPageUrl && (
@@ -1034,7 +994,7 @@ function AdminDashboardPage() {
                 <input
                   value={lulusJobForm.imageUrl || ''}
                   onChange={(event) => setLulusJobForm({ ...lulusJobForm, imageUrl: event.target.value })}
-                  placeholder="/uploads/siswa-lulus.jpg"
+                  placeholder="https://.../gambar-siswa-lulus.jpg"
                 />
               </label>
               {lulusJobForm.imageUrl && (
@@ -1105,7 +1065,7 @@ function AdminDashboardPage() {
               </label>
               <label>
                 URL foto ketua
-                <input value={aboutContentForm.chairman.imageUrl || ''} onChange={(event) => setAboutContentForm({ ...aboutContentForm, chairman: { ...aboutContentForm.chairman, imageUrl: event.target.value } })} placeholder="/uploads/foto-ketua.jpg" />
+                <input value={aboutContentForm.chairman.imageUrl || ''} onChange={(event) => setAboutContentForm({ ...aboutContentForm, chairman: { ...aboutContentForm.chairman, imageUrl: event.target.value } })} placeholder="https://.../gambar-foto-ketua.jpg" />
               </label>
               {aboutContentForm.chairman.imageUrl && (
                 <img className="admin-image-preview" src={resolveMediaUrl(aboutContentForm.chairman.imageUrl)} alt="Preview foto ketua" />
@@ -1188,7 +1148,7 @@ function AdminDashboardPage() {
                 </label>
                 <label>
                   URL gambar program
-                  <input value={program.imageUrl || ''} onChange={(event) => updateAboutProgram(program.id, { imageUrl: event.target.value })} placeholder="/uploads/program.jpg" />
+                  <input value={program.imageUrl || ''} onChange={(event) => updateAboutProgram(program.id, { imageUrl: event.target.value })} placeholder="https://.../gambar-program.jpg" />
                 </label>
                 {program.imageUrl && (
                   <img className="admin-image-preview" src={resolveMediaUrl(program.imageUrl)} alt={program.title} />
@@ -1205,9 +1165,9 @@ function AdminDashboardPage() {
         <div className="admin-grid single-admin-grid">
           <form className="admin-panel" onSubmit={handleAccountSubmit}>
             <h2>Setting Akun Admin</h2>
-            <p>Username dan password disimpan di backend pada file `server/data/accounts.json`.</p>
+            <p>Email dan password admin dikelola oleh Firebase Authentication.</p>
             <label>
-              Username
+              Email
               <input
                 value={accountForm.username}
                 onChange={(event) => setAccountForm({ ...accountForm, username: event.target.value })}
@@ -1250,7 +1210,7 @@ function AdminDashboardPage() {
                 <input
                   value={siteForm.backgrounds.homeHeroUrl}
                   onChange={(event) => updateSiteBackground('homeHeroUrl', event.target.value)}
-                  placeholder="/uploads/background-home.jpg"
+                  placeholder="https://.../gambar-background-home.jpg"
                 />
               </label>
               {siteForm.backgrounds.homeHeroUrl && (
@@ -1273,7 +1233,7 @@ function AdminDashboardPage() {
                 <input
                   value={siteForm.backgrounds.homeAboutUrl}
                   onChange={(event) => updateSiteBackground('homeAboutUrl', event.target.value)}
-                  placeholder="/uploads/background-tentang.jpg"
+                  placeholder="https://.../gambar-background-tentang.jpg"
                 />
               </label>
               {siteForm.backgrounds.homeAboutUrl && (
@@ -1296,7 +1256,7 @@ function AdminDashboardPage() {
                 <input
                   value={siteForm.backgrounds.homeNewsUrl}
                   onChange={(event) => updateSiteBackground('homeNewsUrl', event.target.value)}
-                  placeholder="/uploads/background-berita.jpg"
+                  placeholder="https://.../gambar-background-berita.jpg"
                 />
               </label>
               {siteForm.backgrounds.homeNewsUrl && (
@@ -1319,7 +1279,7 @@ function AdminDashboardPage() {
                 <input
                   value={siteForm.backgrounds.contactPageUrl || ''}
                   onChange={(event) => updateSiteBackground('contactPageUrl', event.target.value)}
-                  placeholder="/uploads/background-page-kontak.jpg"
+                  placeholder="https://.../gambar-background-page-kontak.jpg"
                 />
               </label>
               {siteForm.backgrounds.contactPageUrl && (
@@ -1379,7 +1339,7 @@ function AdminDashboardPage() {
                   <input
                     value={program.imageUrl || ''}
                     onChange={(event) => updateAboutProgram(program.id, { imageUrl: event.target.value })}
-                    placeholder="/uploads/program.jpg"
+                    placeholder="https://.../gambar-program.jpg"
                   />
                 </label>
                 {program.imageUrl && (
@@ -1407,7 +1367,7 @@ function AdminDashboardPage() {
               </label>
               <label>
                 URL logo
-                <input value={siteForm.logoUrl} onChange={(event) => setSiteForm({ ...siteForm, logoUrl: event.target.value })} placeholder="/uploads/logo.png" />
+                <input value={siteForm.logoUrl} onChange={(event) => setSiteForm({ ...siteForm, logoUrl: event.target.value })} placeholder="https://.../gambar-logo.png" />
               </label>
               {siteForm.logoUrl && (
                 <img className="admin-logo-preview" src={resolveMediaUrl(siteForm.logoUrl)} alt="Preview logo" />
@@ -1428,7 +1388,7 @@ function AdminDashboardPage() {
                 <input
                   value={siteForm.backgrounds.aboutPageUrl}
                   onChange={(event) => updateSiteBackground('aboutPageUrl', event.target.value)}
-                  placeholder="/uploads/background-page-tentang.jpg"
+                  placeholder="https://.../gambar-background-page-tentang.jpg"
                 />
               </label>
               {siteForm.backgrounds.aboutPageUrl && (
@@ -1450,7 +1410,7 @@ function AdminDashboardPage() {
                 <input
                   value={siteForm.backgrounds.galleryPageUrl}
                   onChange={(event) => updateSiteBackground('galleryPageUrl', event.target.value)}
-                  placeholder="/uploads/background-page-galeri.jpg"
+                  placeholder="https://.../gambar-background-page-galeri.jpg"
                 />
               </label>
               {siteForm.backgrounds.galleryPageUrl && (
@@ -1573,7 +1533,7 @@ function AdminDashboardPage() {
                       linkUrl: homeContentForm.jobInfo.linkUrl,
                     },
                   })}
-                  placeholder="/uploads/banner-job.jpg"
+                  placeholder="https://.../gambar-banner-job.jpg"
                 />
               </label>
               {homeContentForm.jobBanner.imageUrl && (

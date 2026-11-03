@@ -285,7 +285,7 @@ export function getLocalizedCopy(language) {
   return localizedCopy[language] || localizedCopy.id;
 }
 
-export const SITE_URL = 'https://furusato-seven.vercel.app';
+export const SITE_URL = 'https://furusatotmg.com';
 
 const SHARE_IMAGE_URL = `${SITE_URL}/api/share-preview?v=2`;
 
