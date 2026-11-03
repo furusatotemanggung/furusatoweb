@@ -446,7 +446,7 @@ p {
 .page-lulus-job-grid {
   display: grid;
   gap: 28px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0 auto;
   width: min(100%, 1180px);
 }
@@ -1187,7 +1187,7 @@ p {
   }
 
   .page-lulus-job-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .site-admin-grid .admin-image-preview,
@@ -1331,6 +1331,7 @@ p {
 
   .page-lulus-job-grid {
     gap: 20px;
+    grid-template-columns: 1fr;
   }
 
   .lulus-job-editor-stack {
@@ -1983,10 +1984,14 @@ body {
   margin-right: -5vw;
   margin-top: 42px;
   overflow: hidden;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
 }
 
 .gallery-marquee-track {
-  animation: gallery-scroll 36s linear infinite;
+  animation: gallery-scroll 55s linear infinite;
   display: flex;
   gap: 22px;
   width: max-content;
