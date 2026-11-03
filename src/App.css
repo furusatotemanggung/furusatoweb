@@ -446,7 +446,7 @@ p {
 .page-lulus-job-grid {
   display: grid;
   gap: 28px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0 auto;
   width: min(100%, 1180px);
 }
@@ -1187,7 +1187,7 @@ p {
   }
 
   .page-lulus-job-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .site-admin-grid .admin-image-preview,
@@ -1331,6 +1331,7 @@ p {
 
   .page-lulus-job-grid {
     gap: 20px;
+    grid-template-columns: 1fr;
   }
 
   .lulus-job-editor-stack {
