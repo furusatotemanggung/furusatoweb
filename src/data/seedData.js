@@ -9,79 +9,79 @@ const seedData = {
         "id": "gallery-1780930610088",
         "title": "Selamat mendarat di jepang",
         "description": "Diki san dan Fauzan san selamat data di aichi ken jepang",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727483/furusato/y8u5dtfbplczx5yidrhb.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813753/furusato/rnlyqb5lzg6otyacknfx.jpg"
       },
       {
         "id": "gallery-1780930512733",
         "title": "Selamat mendarat di jepang",
         "description": "Jajan san dan Choirul san memijakan kaki pertama di Jepang",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727482/furusato/musrwz74dkatz4h3rcdf.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813752/furusato/v0chzcyxgf9fospvlg0n.jpg"
       },
       {
         "id": "gallery-1780927032072",
         "title": "ASRAMA SISWA",
         "description": "foto asrama bawah untuk laki laki",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727463/furusato/tluodtrtmagde5cdg7ax.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813740/furusato/voqzv9ru5xiczpbx8fjf.jpg"
       },
       {
         "id": "gallery-1780926955953",
         "title": "ASRAMA SISWA",
         "description": "ini adalah asrama siswa",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727462/furusato/qkwhqsvfbukoaemjtwba.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813738/furusato/xk06bmidrbtpexqx2ujd.jpg"
       },
       {
         "id": "gallery-1780926729257",
         "title": "TEMPAT PARKIR",
         "description": "tempat parkir luas mencakup seluruh siswa",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727461/furusato/v0xo3c5paxiqlb8beqrx.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813737/furusato/m6u2atd3lhqqlugfgsj6.jpg"
       },
       {
         "id": "gallery-1780926543067",
         "title": "KELAS TOKYO",
         "description": "ini adalah kelas siswa baru",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727459/furusato/espjj6btw7t21qb6jclz.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813735/furusato/hncy8s4nq9llarqdwlq4.jpg"
       },
       {
         "id": "gallery-1780924478704",
         "title": "KELAS NAGOYA",
         "description": "ini adalah kelas persiapan JFT",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727457/furusato/ujr0yof7b2t5pijvt7nt.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813733/furusato/y6rapo9wgdtw0iqac9uj.jpg"
       },
       {
         "id": "gallery-1780924425794",
         "title": "KELAS OSAKA",
         "description": "ini adalah kelas n4",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727456/furusato/kymhgny9ifxw70sqvbv3.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813732/furusato/ass4zccrqj2dvxh5ofi6.jpg"
       },
       {
         "id": "gallery-1780924347030",
         "title": "KANTOR FURUSATO",
         "description": "ini adalah bagian kantor furusato",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727455/furusato/ctju4hcostak2bbq6wva.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813731/furusato/f8slsncasbifz67zdste.jpg"
       },
       {
         "id": "gallery-1780894600820",
         "title": "LPK FURUSATO TEMANGGUNG",
         "description": "BAGIAN DEPAN LPK FURUSATO",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727453/furusato/ijvssnnkl7vchzdrocey.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813730/furusato/apntlvuxyivarhr6aw7p.jpg"
       },
       {
         "id": "gallery-1780149613401",
         "title": "Kegiatan Outing Class",
         "description": "Outing Class bersama keluarga furusato di pabrik Crutu",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727450/furusato/fvrzanybe0uvxe9tmvzn.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813725/furusato/djscffetwqbq4ssfqu1p.jpg"
       },
       {
         "id": "gallery-1779117435545",
         "title": "FOTO BUKA BERSAMA",
         "description": "FOTO BUKA BERSAMA SAAT RAMADHAN",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727443/furusato/kmsnvdepngshmsfdiim2.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813715/furusato/gjesfytrbhbslnkh015c.jpg"
       },
       {
         "id": "gallery-1779116980062",
         "title": "foto bersama",
         "description": "DENGAN ANGGOTA BARU FURUSATO",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727442/furusato/dob6wqslt3og6yuflxm1.jpg",
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813714/furusato/qt3us8trb6r8odltvwcv.jpg",
         "action": "update"
       }
     ],
@@ -91,98 +91,98 @@ const seedData = {
         "name": "Nurkholis",
         "origin": "Indramayu",
         "quote": "watashi wa saigo no hito jya arimasen, kouhai matteruzo !",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727487/furusato/f9tvsg1c6zjy5wdgzmd8.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813756/furusato/ntxcem2pqowpwwjtqa4k.jpg"
       },
       {
         "id": "lulus-job-1780931129372",
         "name": "Deva Wisam Muqorrobien",
         "origin": "Temanggung",
         "quote": "kekkon shiki no okagede, yatto nihon ni kitta !",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727486/furusato/k1yfajyep47w7uazcohf.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813756/furusato/f5ts1js7fq79nszjt0hs.jpg"
       },
       {
         "id": "lulus-job-1780931049359",
         "name": "Indar Fathoni",
         "origin": "Cilacap",
         "quote": "mai nichi shikararete yokatta",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727485/furusato/c057rhns677t7q6x0ztz.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813755/furusato/zvqg7jtmgu7hzp9mcptz.jpg"
       },
       {
         "id": "lulus-job-1780930917785",
         "name": "Monica Dizyiana",
         "origin": "Salatiga",
         "quote": "sensei, uchi ni irashatteitadaite arigatou !",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727484/furusato/pyzfcunshtttybmn0cf0.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813754/furusato/ztzwrh05o7kcof3tzgly.jpg"
       },
       {
         "id": "lulus-job-1780929758158",
         "name": "Annisa Diva Kharismadani",
         "origin": "Salatiga",
         "quote": "sensei, kohai no koto wo yoroshiku",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727481/furusato/lb2mfv09xube9f0djjqn.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813751/furusato/poxz9mduep5mtge9g67s.jpg"
       },
       {
         "id": "lulus-job-1780929613284",
         "name": "Ipunk Indra Tirta",
         "origin": "Cepu",
         "quote": "iroiro to arigatougozaimasu, osewa ni narimashita",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727480/furusato/bbiapddwf3piyrnwolbr.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813750/furusato/h3gz94czxmyuksyfuudt.jpg"
       },
       {
         "id": "lulus-job-1780929522870",
         "name": "Tabita Happy Shifani",
         "origin": "Temanggung",
         "quote": "dadar gulung douzo !",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727472/furusato/fm8kdnxhd5onjbchiz16.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813749/furusato/kkg3fx3b5eiqfbuoebhr.jpg"
       },
       {
         "id": "lulus-job-1780929452381",
         "name": "Gladiola Natania Ashari",
         "origin": "Temanggung",
         "quote": "Toufu uriba kara sekai e",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727470/furusato/cy370gbwtvwysnb1bhcv.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813748/furusato/sekea2klbmby7iixfiwv.jpg"
       },
       {
         "id": "lulus-job-1780929335277",
         "name": "Karim Fauzan Zulfa",
         "origin": "Sragen",
         "quote": "Shinazuni kaerimasu kara !",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727470/furusato/hhahdmzf5ale7zmigcz0.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813747/furusato/qokjlnugggoimw425wvm.jpg"
       },
       {
         "id": "lulus-job-1780929067043",
         "name": "Tri Diki Kurniawan",
         "origin": "Magetan",
         "quote": "Ganbarimasu!",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727469/furusato/lfezfnvv8twz3c3ivfjf.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813746/furusato/znrxgwlc7r4ibltodvek.jpg"
       },
       {
         "id": "lulus-job-1780929003043",
         "name": "Luki Ferdinan",
         "origin": "Kec.Wonoboyo Temanggung",
         "quote": "Furusato ni deaette yokatta",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727468/furusato/sa4apmiogygtvsxxe0wr.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813745/furusato/x5ezgpvuiriyfdfxrwst.jpg"
       },
       {
         "id": "lulus-job-1780928756493",
         "name": "Dio Fajar Bastian",
         "origin": "Kec.Wonoboyo Temanggung",
         "quote": "Sensei ogenki de",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727467/furusato/moqcddphjokgxy5xmwed.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813744/furusato/lilgh1vg9vigvnaea4xg.jpg"
       },
       {
         "id": "lulus-job-1780928539186",
         "name": "Muhammad Choirul Muntaha",
         "origin": "Blora",
         "quote": "Ittekimasu!",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727465/furusato/nuvnuyi4snyr870z0bms.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813742/furusato/gdjlazvobscjzn9mc01t.jpg"
       },
       {
         "id": "lulus-job-1780927640172",
         "name": "Jajang Noer Jaman",
         "origin": "Jakarta",
         "quote": "Terima Kasih Furusato, Sebagai siswa tertua Furusato saya akan membimbing adik adik mengharumkan nama indonesia.",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727465/furusato/ajbco3h8nddkryqxmrbn.jpg"
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813741/furusato/gvucqinjzqk8papplqia.jpg"
       }
     ]
   },
@@ -190,15 +190,15 @@ const seedData = {
     "site/main": {
       "brandName": "FURUSATO",
       "brandSubtitle": "LPK FURUSATO TEMANGGUNG",
-      "logoUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727436/furusato/x1cm4jwf4bobandoatt5.png",
+      "logoUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813708/furusato/auqmvuuiuqemxh93hhuq.png",
       "backgrounds": {
-        "homeHeroUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727437/furusato/mwxh3wtke8zg8vdmijp5.png",
-        "homeAboutUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727441/furusato/cbjqy9tcicdvrcbprtes.jpg",
-        "homeNewsUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727448/furusato/prdkrn63y5p5dd3rtlnb.jpg",
-        "galleryPageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727439/furusato/hughutokonputvjxahw4.jpg",
-        "aboutPageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727439/furusato/lxdqzcr3etn5oy0c4i0t.jpg",
-        "lulusJobPageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727449/furusato/rkf14thkxdfbfyiqh3t1.png",
-        "contactPageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727452/furusato/kov0kbd9pu1ais7v92mz.jpg"
+        "homeHeroUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813710/furusato/ylactlnaheyeunin71ug.png",
+        "homeAboutUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813713/furusato/vzmslblibkk9wfgvgzhp.jpg",
+        "homeNewsUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813722/furusato/kvcebhjqrrmfkpcnrbdv.jpg",
+        "galleryPageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813711/furusato/bht1wnzumfbqrfin28lc.jpg",
+        "aboutPageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813712/furusato/jdtpj2hrw1uze7i4nyjf.jpg",
+        "lulusJobPageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813724/furusato/ip9hxjcca8ivrqhoqzkh.png",
+        "contactPageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813728/furusato/yqiyjpvxmplfdzzirmzg.jpg"
       },
       "address": "Jl. Hayam Wuruk No. 1 RT 02 RW 03 Brajan, Sidorejo, Kec.Temanggung, Kab.Temanggung, Jawa Tengah 56221, Indonesia",
       "phone": "08122709708",
@@ -212,7 +212,7 @@ const seedData = {
       }
     },
     "content/home": {
-      "heroBackgroundUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727435/furusato/i8kclvxmn5ujypyybbjs.png",
+      "heroBackgroundUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813706/furusato/di300dftw7qsbk3ufjh0.png",
       "jobInfo": {
         "label": "JEPANG 2026",
         "title": "ADA JALAN KARIR BANYAK KE JEPANG !",
@@ -224,7 +224,7 @@ const seedData = {
         "label": "JEPANG 2026",
         "title": "ADA JALAN KARIR BANYAK KE JEPANG !",
         "description": "SUSAH CARI KERJA DI INDONESIA AYO KE JEPANG !",
-        "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727451/furusato/g2feu0ub8iea1bkuvwwp.png",
+        "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813727/furusato/ldccbmo97ykoyhdaxabw.png",
         "linkUrl": "/berita",
         "newsId": "news-1778848889102"
       },
@@ -241,7 +241,7 @@ const seedData = {
           "eyebrow": "Sambutan Ketua",
           "name": "Sabdo Widodo",
           "body": "Kami berkomitmen memberikan pelatihan bahasa Jepang, dan pembinaan karakter terbaik agar peserta tidak hanya siap bekerja, tetapi juga berakhlak baik yang mampu membawa sikap disiplin, tangguh, dan bertanggung jawab, tidak hanya untuk diri siswa sendiri tetapi juga membawa nama baik keluarga dan negara di dunia internasional.",
-          "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727488/furusato/dmshwhkhtlm0jxaedeqr.jpg"
+          "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813757/furusato/y4bosa8f6dzsc05a5wz9.jpg"
         },
         "visionMission": {
           "visionTitle": "VISI",
@@ -254,19 +254,19 @@ const seedData = {
             "id": "program-001",
             "title": "Program Bahasa Jepang",
             "description": "Pembelajaran bahasa Jepang terarah untuk membantu peserta membangun kemampuan komunikasi dasar.",
-            "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727444/furusato/akdfemt9bkaaqgjviaud.png"
+            "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813717/furusato/jjrqimyt3oqzfcwj8o6q.png"
           },
           {
             "id": "program-002",
             "title": "Pembinaan Budaya Kerja",
             "description": "Pembinaan kedisiplinan, etika kerja, dan kesiapan mental untuk memasuki lingkungan kerja profesional.",
-            "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727445/furusato/e10ls2fc8ipuubgujndm.png"
+            "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813719/furusato/c3qzdme5n61yqy0zm0ne.png"
           },
           {
             "id": "program-003",
             "title": "Persiapan Kerja Secara Ril",
             "description": "Sebelum berangkat berkerja ke jepang, dari furusato terdapat pelatihan dalam bidang kerja tersebut agar siswa terbiasa dengan apa yang akan di hadapi di jepang nanti.",
-            "imageUrl": "https://res.cloudinary.com/dlmpca80t/image/upload/v1793727446/furusato/syy0oqw7fx9l8jyft2d0.png"
+            "imageUrl": "https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813721/furusato/kdv56wc1n0aj9llm9gtn.png"
           }
         ],
         "slogan": {
