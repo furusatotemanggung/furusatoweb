@@ -65,7 +65,7 @@ export const fallbackLulusJobs = [
 export const fallbackSite = {
   brandName: 'LPK FURUSATO TEMANGGUNG',
   brandSubtitle: 'Lembaga Pelatihan Kerja',
-  logoUrl: 'https://res.cloudinary.com/dlmpca80t/image/upload/v1793727436/furusato/x1cm4jwf4bobandoatt5.png',
+  logoUrl: 'https://res.cloudinary.com/ti2gkv2r/image/upload/v1794813708/furusato/auqmvuuiuqemxh93hhuq.png',
   backgrounds: {
     homeHeroUrl: '',
     homeAboutUrl: '',
